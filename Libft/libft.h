@@ -6,7 +6,7 @@
 /*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 12:28:47 by idel-poz          #+#    #+#             */
-/*   Updated: 2023/12/16 20:12:48 by idel-poz         ###   ########.fr       */
+/*   Updated: 2023/12/23 15:02:17 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,3 +47,5 @@ int	strncmp(const char *s1, const char *s2, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n);
+
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
