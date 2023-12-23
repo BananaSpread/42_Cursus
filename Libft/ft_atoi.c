@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/23 13:42:22 by idel-poz          #+#    #+#             */
-/*   Updated: 2023/12/23 16:58:56 by idel-poz         ###   ########.fr       */
+/*   Created: 2023/12/23 16:24:44 by idel-poz          #+#    #+#             */
+/*   Updated: 2023/12/23 18:27:17 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
-
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+int	ft_atoi(const char *str)
 {
 	size_t	i;
-	size_t	c;
+	int		v;
+	char	c;
 
 	i = 0;
-	c = 0;
-	while (i < len)
+	v = 0;
+	while (str[i])
 	{
-		if (!needle[c])
-			break ;
-		if (haystack[i] != needle[c])
-			c = 0;
-		else
-		{
-			i++;
-			c++;
-		}
+		c = str[i];
+		if (c >= '0' || c <= '9')
+			v = v + (10 * i) + c - '0';
+		i++;
 	}
-	if (ft_strlen(needle) != c)
-		return (NULL);
-	return (haystack[i]);
+	if (str[0] == '-')
+		v *= -1;
+	return (v);
 }

@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/23 13:42:22 by idel-poz          #+#    #+#             */
-/*   Updated: 2023/12/23 16:58:56 by idel-poz         ###   ########.fr       */
+/*   Created: 2023/12/23 17:21:16 by idel-poz          #+#    #+#             */
+/*   Updated: 2023/12/23 17:33:19 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include <libft.h>
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	i;
-	size_t	c;
+	size_t	i1;
+	size_t	i2;
+	char	*v;
 
-	i = 0;
-	c = 0;
-	while (i < len)
-	{
-		if (!needle[c])
-			break ;
-		if (haystack[i] != needle[c])
-			c = 0;
-		else
-		{
-			i++;
-			c++;
-		}
-	}
-	if (ft_strlen(needle) != c)
-		return (NULL);
-	return (haystack[i]);
+	i1 = fr_strlen(s1);
+	i2 = ft_strlen(s2);
+	v = malloc((i1 + i2) * sizeof(char));
+	ft_memcpy(v, s1, i1);
+	ft_memcpy(*v[i1 - 1], s2, i2);
+	return (v);
 }
