@@ -6,7 +6,7 @@
 /*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:33:53 by idel-poz          #+#    #+#             */
-/*   Updated: 2023/12/23 18:23:02 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/13 15:01:00 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	len;
 	char	*trim;
-	
+
 	if (!s1 || !set)
 		return (NULL);
 	while (*s1 && ft_strchr(set, *s1))

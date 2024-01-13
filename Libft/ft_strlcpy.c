@@ -6,11 +6,11 @@
 /*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 17:50:23 by idel-poz          #+#    #+#             */
-/*   Updated: 2023/12/11 18:21:14 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/13 15:45:03 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-size_t	ft_strlcpy(char *restrict dst, const char *restrict src, size_t dstsize)
+size_t	ft_strlcpy(char dst, const char src, size_t dstsize)
 {
 	size_t	i;
 

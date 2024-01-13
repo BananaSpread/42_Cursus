@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/13 14:47:14 by idel-poz          #+#    #+#             */
+/*   Updated: 2024/01/13 14:49:35 by idel-poz         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 char	*ft_itoa(int n)
 {
 	char	*v;
 	size_t	i;
-	int	aux;
+	int		aux;
 
 	v = malloc(sizeof(char) * 12);
 	i = 0;
@@ -19,7 +31,7 @@ char	*ft_itoa(int n)
 	return (ft_reverse(v, i));
 }
 
-char	static *ft_reverse(char s*, int size)
+char	static	*ft_reverse(char s*, int size)
 {
 	char	c;
 	size_t	i;

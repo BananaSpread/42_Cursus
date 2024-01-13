@@ -6,11 +6,11 @@
 /*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:16:25 by idel-poz          #+#    #+#             */
-/*   Updated: 2023/12/16 18:41:36 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/13 15:45:18 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsize)
+size_t	ft_strlcat(char dst, const char src, size_t dstsize)
 {
 	size_t	i;
 	char	*aux;
