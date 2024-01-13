@@ -6,9 +6,12 @@
 /*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 12:28:47 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/01/13 15:46:36 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/13 18:40:19 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef MY_LIBFT_H
+#define MY_LIBFT_H
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -44,3 +47,5 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+
+#endif
