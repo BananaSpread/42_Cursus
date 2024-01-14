@@ -6,11 +6,11 @@
 /*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 15:29:32 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/01/13 15:33:20 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/14 19:56:23 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ftlib.h>
+#include "libft.h"
 
 void	vf_putnbr_fd(int n, int fd)
 {

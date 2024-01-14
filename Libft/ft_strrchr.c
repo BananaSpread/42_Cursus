@@ -6,9 +6,11 @@
 /*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 18:55:06 by idel-poz          #+#    #+#             */
-/*   Updated: 2023/12/16 18:57:21 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/14 20:30:41 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "stdlib.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
@@ -16,10 +18,9 @@ char	*ft_strrchr(const char *s, int c)
 	char	*v;
 
 	i = 0;
+	v = NULL;
 	while (s[i])
 		if (s[i] == c)
-			*v = *s[i];
-	if (v)
-		return (v);
-	return (NULL);
+			v = (char *)&s[i];
+	return (v);
 }

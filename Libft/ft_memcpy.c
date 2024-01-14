@@ -6,19 +6,27 @@
 /*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 14:34:01 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/01/13 15:44:14 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/14 19:35:14 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void dst, const void src, size_t n)
-{
-	size_t	i;
+#include "stdlib.h"
 
-	i = 0;
-	while (i < n && src[i])
+void	*ft_memcpy(void *dst, const void *src, size_t n)
+{
+	char	*d;
+	char	*s;
+
+	if (!dst && src == 0)
+		return (0);
+	d = (char *)dst;
+	s = (char *)src;
+	while (n > 0)
 	{
-		dst[i] = src[i];
-		i++;
+		*d = *s;
+		d++;
+		s++;
+		n--;
 	}
 	return (dst);
 }

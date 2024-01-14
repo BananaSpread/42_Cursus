@@ -6,11 +6,11 @@
 /*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 12:49:22 by idel-poz          #+#    #+#             */
-/*   Updated: 2023/12/11 13:01:06 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/14 18:56:30 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 int	ft_isprint(int c)
 {

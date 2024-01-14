@@ -6,9 +6,11 @@
 /*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 14:48:01 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/01/13 14:48:03 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/14 20:06:16 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "stdlib.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
@@ -17,7 +19,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	i = 0;
 	while (s[i])
 	{
-		s[i] = f(i, &s[i]);
+		(*f)(i, &s[i]);
 		i++;
 	}
 }

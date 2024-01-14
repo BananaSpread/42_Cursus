@@ -6,9 +6,11 @@
 /*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 12:55:03 by idel-poz          #+#    #+#             */
-/*   Updated: 2023/12/11 13:08:09 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/14 20:20:30 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "stdlib.h"
 
 size_t	ft_strlen(const char *s)
 {

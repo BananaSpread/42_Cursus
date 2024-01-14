@@ -6,30 +6,29 @@
 /*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:16:25 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/01/13 15:45:18 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/14 20:18:22 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-size_t	ft_strlcat(char dst, const char src, size_t dstsize)
+#include "libft.h"
+
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
-	char	*aux;
+	size_t	j;
+	size_t	k;
 
-	i = 0;
-	while (src[i])
-	{
-		aux[i] = src[i];
-		i++;
-	}
-	i = 0;
-	while (dst[i])
-		i++;
-	while (aux[i])
-	{
-		dst[i] = aux[i];
-		i++;
-	}
-	if (i > 0)
-		dst[i] = '\0';
-	return (i);
+	j = ft_strlen(dst);
+	i = ft_strlen(src);
+	if (dstsize <= j)
+		return (dstsize + i);
+	k = 0;
+	if (dstsize > 0)
+		while (src[k] && k < dstsize - j - 1)
+		{
+			dst[j + k] = src[k];
+			k++;
+		}
+	dst[j + k] = '\0';
+	return (j + i);
 }

@@ -6,9 +6,11 @@
 /*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 16:24:44 by idel-poz          #+#    #+#             */
-/*   Updated: 2023/12/23 18:27:17 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/14 18:15:52 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "stdlib.h"
 
 int	ft_atoi(const char *str)
 {

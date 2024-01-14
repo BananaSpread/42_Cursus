@@ -6,11 +6,11 @@
 /*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 14:48:17 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/01/13 15:00:35 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/14 20:20:47 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

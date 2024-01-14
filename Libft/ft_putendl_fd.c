@@ -6,11 +6,11 @@
 /*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 15:25:31 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/01/13 15:29:04 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/14 19:55:47 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {

@@ -6,14 +6,14 @@
 /*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 14:14:30 by idel-poz          #+#    #+#             */
-/*   Updated: 2023/12/11 14:30:16 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/14 18:25:49 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
-	if (n)
+	if (n > 0)
 		ft_memset(s, '0', n);
 }

@@ -6,11 +6,11 @@
 /*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 12:35:45 by idel-poz          #+#    #+#             */
-/*   Updated: 2023/12/11 12:46:38 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/14 18:56:05 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 int	ft_isalnum(int c)
 {

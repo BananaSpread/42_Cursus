@@ -6,9 +6,11 @@
 /*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 20:08:02 by idel-poz          #+#    #+#             */
-/*   Updated: 2023/12/16 20:12:28 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/14 19:23:16 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "stdio.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
@@ -19,8 +21,8 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		c1 = s1[i];
-		c2 = s2[i];
+		c1 = (char)&s1[i];
+		c2 = (char)&s2[i];
 		i++;
 		if (!c1 || !c2)
 			continue ;

@@ -6,11 +6,11 @@
 /*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:33:53 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/01/13 15:01:00 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/14 20:30:55 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 char	*ft_strtrim(char const *s1, char const *set)
 {

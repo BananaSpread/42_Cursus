@@ -6,7 +6,7 @@
 /*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 14:47:32 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/01/13 15:22:59 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/14 19:55:20 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	write(fd, c, 1);
+	write(fd, &c, 1);
 }

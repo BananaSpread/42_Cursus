@@ -6,9 +6,11 @@
 /*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:01:01 by idel-poz          #+#    #+#             */
-/*   Updated: 2023/12/16 19:25:51 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/14 20:21:35 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "stdlib.h"
 
 int	strncmp(const char *s1, const char *s2, size_t n)
 {

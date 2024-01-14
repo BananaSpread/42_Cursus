@@ -6,9 +6,13 @@
 /*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 14:47:14 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/01/13 14:49:35 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/14 19:08:33 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "stdlib.h"
+
+char	static	*reverse(char *s, int size);
 
 char	*ft_itoa(int n)
 {
@@ -28,16 +32,16 @@ char	*ft_itoa(int n)
 	if (n < 0)
 		v[i++] = '-';
 	v[i++] = '\0';
-	return (ft_reverse(v, i));
+	return (reverse(v, i));
 }
 
-char	static	*ft_reverse(char s*, int size)
+char	static	*reverse(char *s, int size)
 {
 	char	c;
 	size_t	i;
 
 	i = 0;
-	while (i < size / 2)
+	while (i < (size_t)size / 2)
 	{
 		c = s[i];
 		s[i] = s[size - i - 1];
