@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 12:47:04 by idel-poz          #+#    #+#             */
-/*   Updated: 2023/12/11 12:50:35 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/20 18:16:56 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isascii(int c)
 {
-	if (c >= 0 && c <= 255)
-		return (1);
-	return (0);
+	return (c >= 0 && c <= 127);
 }

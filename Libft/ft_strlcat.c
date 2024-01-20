@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:16:25 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/01/14 20:18:22 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/20 16:59:12 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,13 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 		return (dstsize + i);
 	k = 0;
 	if (dstsize > 0)
+	{
 		while (src[k] && k < dstsize - j - 1)
 		{
 			dst[j + k] = src[k];
 			k++;
 		}
+	}
 	dst[j + k] = '\0';
 	return (j + i);
 }

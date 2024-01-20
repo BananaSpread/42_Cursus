@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 14:14:30 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/01/14 18:25:49 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/20 19:39:04 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	if (n > 0)
-		ft_memset(s, '0', n);
+	ft_memset(s, '0', n);
 }

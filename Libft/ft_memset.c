@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 13:02:29 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/01/14 19:54:36 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/20 19:46:06 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	*ft_memset(void *b, int c, size_t len)
 {
 	size_t	i;
-	char	*s;
 
+	if (!b)
+		return (NULL);
 	i = 0;
-	s = b;
 	while (i < len)
 	{
-		s[i] = c;
+		((char *) b)[i] = c;
 		i++;
 	}
 	return (b);

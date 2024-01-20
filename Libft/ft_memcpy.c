@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 14:34:01 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/01/14 19:35:14 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/20 19:35:07 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	char	*s;
 
 	if (!dst && src == 0)
-		return (0);
+		return (NULL);
 	d = (char *)dst;
 	s = (char *)src;
 	while (n > 0)

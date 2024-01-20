@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 12:49:22 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/01/14 18:56:30 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/20 18:20:03 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 int	ft_isprint(int c)
 {
-	if (c == ' ' || ft_isalpha(c) || ft_isdigit(c))
-		return (1);
-	return (0);
+	return (c >= 32 && c <= 126);
 }

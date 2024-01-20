@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 12:55:03 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/01/14 20:20:30 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/20 18:25:07 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,10 @@
 size_t	ft_strlen(const char *s)
 {
 	size_t	l;
-	int		c;
 
 	l = 0;
-	c = 0;
 	if (s)
-		while (s[c])
+		while (s[l])
 			l++;
 	return (l);
 }

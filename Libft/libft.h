@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 12:28:47 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/01/14 20:16:49 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/20 17:03:25 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MY_LIBFT_H
-#define MY_LIBFT_H
+#ifndef LIBFT_H
+# define LIBFT_H
 
-#include "stdlib.h"
+# include "stdlib.h"
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
