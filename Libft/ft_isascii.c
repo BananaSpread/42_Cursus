@@ -6,10 +6,11 @@
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 12:47:04 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/01/20 18:16:56 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/21 15:41:46 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// Checks if c is a valid ascii char
 int	ft_isascii(int c)
 {
 	return (c >= 0 && c <= 127);

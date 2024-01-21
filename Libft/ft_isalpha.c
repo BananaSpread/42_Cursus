@@ -3,18 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 11:57:41 by idel-poz          #+#    #+#             */
-/*   Updated: 2023/12/11 12:53:45 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/21 15:40:47 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// Checks if c is a valid letter
 int	ft_isalpha(int c)
 {
-	if (c >= 'a' && c <= 'z')
-		return (1);
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	return (0);
+	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
 }

@@ -6,47 +6,123 @@
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 16:24:44 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/01/20 20:33:22 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/21 15:29:02 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stdlib.h"
-#include <stdio.h>
+#include "libft.h"
 
+// Converts the string argument str to an integer
 int	ft_atoi(const char *str)
 {
-	size_t	i;
-	int		v;
+	long	v;
 	int		m;
-	char	c;
 
-	i = 0;
 	m = 1;
-	v = 0;
-	while (str[i])
+	while (*str == ' ' || *str == '\t' || *str == '\v'
+		|| *str == '\f' || *str == '\r' || *str == '\n')
+		str++;
+	if (!ft_isdigit(*str) && *str != '+' && *str != '-')
+		return (0);
+	if (*str == '-')
 	{
-		c = str[i];
-		if (c >= '0' && c <= '9')
-			v = (v * 10) + (c - '0');
-		else if (c == '-')
-			m = -1;
-		else if (c == ' ')
-			continue ;
+		m = -1;
+		str++;
+	}
+	else if (*str == '+')
+		str++;
+	while (*str)
+	{
+		if (ft_isdigit(*str))
+			v = (v * 10) + (*str - '0');
 		else
 			break ;
-		i++;
+		str++;
 	}
-	v *= m;
-	return (v);
+	return ((int)(v * m));
 }
 
-int main()
-{
-	char *s = "982 7342";
+/* 
+#include <stdio.h>
+#include <limits.h>
 
-	printf("Str: %s, \n", s);
-	printf("resultado nativo %d\n", atoi(s));
-	printf("resultado ft %d\n", ft_atoi(s));
-	printf("comprobacion %d\n", ft_atoi(s) - atoi(s));
+void	print_result(char *s) {
+	int native_result = atoi(s);
+	int ft_result = ft_atoi(s);
+	int check = native_result == ft_result;
+
+	printf("-> Entrada: %s", s);
+	printf("\t\t");
+	printf("Nativo: %d", native_result);
+	printf("\t\t");
+	printf("ft: %d", ft_result);
+	printf("\t\t");
+	printf("Check: %d", check);
+	printf("\n");
+}
+
+int main() {
+	char *s = "98273";
+	print_result(s);
+	s = "982 73";
+	print_result(s);
+	s = "  98273";
+	print_result(s);
+	s = "  -98273";
+	print_result(s);
+	s = "  +98273";
+	print_result(s);
+	s = "  ++98273";
+	print_result(s);
+	s = "  --98273";
+	print_result(s);
+	s = "++98273";
+	print_result(s);
+	s = "--98273";
+	print_result(s);
+	s = "f98273";
+	print_result(s);
+	s = "+98273";
+	print_result(s);
+	s = "t-98273";
+	print_result(s);
+	s = "t+98273";
+	print_result(s);
+	s = "+l98273";
+	print_result(s);
+	s = "-l98273";
+	print_result(s);
+	s = "98273   ";
+	print_result(s);
+	s = "l98273   ";
+	print_result(s);
+	s = "982h73";
+	print_result(s);
+	s = "l98-273";
+	print_result(s);
+	s = "982+73";
+	print_result(s);
+	s = "+42lyon";
+	print_result(s);
+	s = "2147483648";
+	print_result(s);
+	s = "-2147483647";
+	print_result(s);
+	
+	s = " \t\v\n\r\f123";
+	print_result(s);
+	s = "\t 10";
+	print_result(s);
+	s = "\n 11";
+	print_result(s);
+	s = "\v 12";
+	print_result(s);
+	s = "\f 13";
+	print_result(s);
+	s = "\r 14";
+	print_result(s);
+	s = "12\r14";
+	print_result(s);
 	return (0);
 }
+  */
