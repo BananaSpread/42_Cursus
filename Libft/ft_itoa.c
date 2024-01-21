@@ -6,87 +6,85 @@
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 14:47:14 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/01/21 15:57:57 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:26:25 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stdlib.h"
+#include <stdio.h>
 
-char	static	*reverse(char *s, int size);
+static	unsigned int	get_n_size(long n);
+static	char			*get_itoa_str(long n, unsigned int n_size, int neg);
 
 // Converts the integer argument n to an string and returns
 // a pointer to the first element.
 char	*ft_itoa(int n)
 {
-	char	*v;
-	size_t	i;
-	int		aux;
+	long	n_val;
+	int		neg;
 
-	v = malloc(sizeof(char) * 12);
-	if (!v)
-		return (NULL);
-	i = 0;
-	aux = n;
-	while (aux > 0)
-	{
-		v[i] = aux % 10;
-		aux /= 10;
-		i++;
-	}
+	if (n == 0)
+		return ("0");
+	n_val = n;
+	neg = 0;
 	if (n < 0)
-		v[i++] = '-';
-	v[i++] = '\0';
-	return (reverse(v, i));
+	{
+		n_val *= -1;
+		neg = 1;
+	}
+	return (get_itoa_str(n_val, get_n_size(n_val), neg));
 }
 
-char	static	*reverse(char *s, int size)
+static	unsigned	int	get_n_size(long n)
 {
-	char	c;
-	size_t	i;
+	unsigned int	s;
 
-	i = 0;
-	while (i < (size_t)size / 2)
+	s = 0;
+	while (n != 0)
 	{
-		c = s[i];
-		s[i] = s[size - i - 1];
-		s[size - i - 1] = c;
-		i++;
+		n /= 10;
+		s++;
 	}
 	return (s);
 }
 
-#include <limits.h>
+static	char	*get_itoa_str(long n, unsigned int n_size, int neg)
+{
+	char	*v;
+
+	v = malloc(sizeof(char) * (n_size + neg + 1));
+	if (!v)
+		return (NULL);
+	v[n_size + neg] = '\0';
+	if (neg == 1)
+		v[0] = '-';
+	while (n_size > 0)
+	{
+		v[n_size - neg - 1] = (n % 10) + '0';
+		n /= 10;
+		n_size--;
+	}
+	return (v);
+}
+
+/* #include <limits.h>
 #include <stdio.h>
 
 void	print_result(int n) {
-	char *native_result = itoa(n);
-	char *ft_result = ft_itoa(n);
-
 	printf("-> Entrada: %d", n);
 	printf("\t\t");
-	printf("Nativo: %s", native_result);
-	printf("\t\t");
-	printf("ft: %s", ft_result);
+	printf("ft: %s", ft_itoa(n));
+	printf("\t\tJeJE");
 	printf("\n");
 }
 
 int main() {
-	int n = 0;
-	print_result(n);
-	n = 45;
-	print_result(n);
-	n = 889834;
-	print_result(n);
-	n = -0;
-	print_result(n);
-	n = -6;
-	print_result(n);
-	n = -12739;
-	print_result(n);
-	n = INT_MAX;
-	print_result(n);
-	n = INT_MIN;
-	print_result(n);
+	print_result(0);
+	print_result(889834);
+	print_result(112233);
+	print_result(-12739);
+	print_result(INT_MAX);
+	print_result(INT_MIN);
 
 	return (0);
-}
+} */
