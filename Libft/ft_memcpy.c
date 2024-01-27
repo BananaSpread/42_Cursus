@@ -6,27 +6,27 @@
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 14:34:01 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/01/20 19:35:07 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/27 12:50:11 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stdlib.h"
 
+// Copies n bytes from dst to src
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char	*d;
-	char	*s;
+	unsigned char	*d;
+	unsigned char	*s;
 
 	if (!dst && src == 0)
 		return (NULL);
-	d = (char *)dst;
-	s = (char *)src;
-	while (n > 0)
+	d = (unsigned char *) dst;
+	s = (unsigned char *) src;
+	while (n--)
 	{
 		*d = *s;
 		d++;
 		s++;
-		n--;
 	}
 	return (dst);
 }
