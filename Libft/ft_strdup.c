@@ -6,12 +6,13 @@
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 16:48:37 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/01/20 18:35:39 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/27 19:30:13 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// Duplicates the string s1 and returns a pointer to it
 char	*ft_strdup(const char *s1)
 {
 	size_t	i;

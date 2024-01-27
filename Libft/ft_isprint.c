@@ -6,11 +6,9 @@
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 12:49:22 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/01/21 15:42:05 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/27 18:33:04 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 // Checks if c is a valid printable char
 int	ft_isprint(int c)
