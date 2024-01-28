@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 18:47:44 by idel-poz          #+#    #+#             */
-/*   Updated: 2023/12/16 18:49:38 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/28 17:44:03 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// Transforms c from UPPERCASE to lowercase
 int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')

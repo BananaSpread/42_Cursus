@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 18:42:30 by idel-poz          #+#    #+#             */
-/*   Updated: 2023/12/16 18:46:10 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/28 17:44:06 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// Transforms c from lowercase to UPPERCASE
 int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
