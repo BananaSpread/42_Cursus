@@ -3,35 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idel-poz <idel-poz@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 13:42:22 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/01/14 20:23:15 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/01/28 15:52:58 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// Search into the string haystack the substing needle up to len bytes and
+// returns the first position if found. Returns NULL if not found.
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	i;
 	size_t	c;
 
+	if (!*haystack)
+		return (NULL);
+	if (!*needle || haystack == needle)
+		return ((char *) haystack);
 	i = 0;
 	c = 0;
-	while (i < len)
+	while (len--)
 	{
 		if (!needle[c])
-			break ;
-		if (haystack[i] != needle[c])
-			c = 0;
-		else
-		{
-			i++;
+			return ((char *) &haystack[i - c]);
+		if (haystack[i] == needle[c])
 			c++;
-		}
+		else
+			c = 0;
+		i++;
 	}
-	if (ft_strlen(needle) != c)
-		return (NULL);
-	return ((char *)&haystack[i]);
+	return (NULL);
 }
