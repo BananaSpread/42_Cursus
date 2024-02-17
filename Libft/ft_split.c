@@ -6,15 +6,15 @@
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 14:47:47 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/02/04 18:00:50 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/02/17 16:28:04 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static size_t	get_words_no(const char *s, char c);
-static size_t	get_word_chars_no(const char *s, char c);
-static char		**free_mem(const char **v, size_t v_len);
+static size_t	get_word_length(const char *s, char c);
+static char		**free_mem(char **v, size_t v_len);
 
 // Splits the string s separating by every c found on it.
 char	**ft_split(char const *s, char c)
@@ -34,10 +34,10 @@ char	**ft_split(char const *s, char c)
 	{
 		while (*s == c)
 			s++;
-		chars_no = get_word_chars_no((const char *) s, c);
-		v[i] = (char *) malloc(sizeof(char) * (chars_no + 1));
+		chars_no = get_word_length((const char *) s, c);
+		v[i] = (char *) malloc(sizeof(char) * (chars_no));
 		if (!v[i])
-			return (free_mem((const char **) v, len));
+			return (free_mem((char **) v, (len + 1)));
 		ft_strlcpy(v[i], s, chars_no + 1);
 		s = ft_strchr(s, (int) c);
 		i++;
@@ -69,7 +69,7 @@ static size_t	get_words_no(const char *s, char c)
 	return (count);
 }
 
-static size_t	get_word_chars_no(const char *s, char c)
+static size_t	get_word_length(const char *s, char c)
 {
 	size_t	i;
 
@@ -79,10 +79,13 @@ static size_t	get_word_chars_no(const char *s, char c)
 	return (i);
 }
 
-static char	**free_mem(const char **v, size_t v_len)
+static char	**free_mem(char **v, size_t v_len)
 {
-	while (v_len--)
-		free((void *) v[v_len]);
+	size_t	i;
+
+	i = 0;
+	while (i < v_len)
+		free((void *) v[i++]);
 	free(v);
 	return (NULL);
 }

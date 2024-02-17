@@ -6,7 +6,7 @@
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 20:08:02 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/01/27 12:44:58 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/02/17 16:02:15 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,8 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	{
 		if (*str1 != *str2)
 			return (*str1 - *str2);
-		if (n)
-		{
-			str1++;
-			str2++;
-		}
+		str1++;
+		str2++;
 	}
 	return (0);
 }
