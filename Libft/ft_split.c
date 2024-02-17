@@ -6,7 +6,7 @@
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 14:47:47 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/02/17 16:28:04 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/02/17 18:02:28 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ char	**ft_split(char const *s, char c)
 		while (*s == c)
 			s++;
 		chars_no = get_word_length((const char *) s, c);
-		v[i] = (char *) malloc(sizeof(char) * (chars_no));
+		v[i] = (char *) malloc(sizeof(char) * (chars_no + 1));
 		if (!v[i])
-			return (free_mem((char **) v, (len + 1)));
+			return (free_mem((char **) v, (i + 1)));
 		ft_strlcpy(v[i], s, chars_no + 1);
 		s = ft_strchr(s, (int) c);
 		i++;
