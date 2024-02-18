@@ -6,7 +6,7 @@
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:21:16 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/01/28 12:52:32 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/02/17 18:46:25 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	i2;
 	char	*v;
 
+	if (!s1 || !s2)
+		return (NULL);
 	i1 = ft_strlen(s1);
 	i2 = ft_strlen(s2);
 	v = malloc((i1 + i2 + 1) * sizeof(char));

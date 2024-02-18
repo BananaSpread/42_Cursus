@@ -6,7 +6,7 @@
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 14:48:17 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/01/28 13:48:15 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/02/17 18:40:14 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	size_t	i;
 	char	*v;
 
+	if (!s || !f)
+		return (NULL);
 	i = 0;
 	v = malloc((sizeof(char) * ft_strlen(s)) + 1);
 	if (!v)

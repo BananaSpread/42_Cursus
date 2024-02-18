@@ -3,3 +3,4 @@
 */.gitignore
 **/*.o
 **/*.a
+libft-unit-test/

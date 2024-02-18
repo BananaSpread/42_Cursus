@@ -6,7 +6,7 @@
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 13:02:29 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/01/27 13:40:47 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/02/17 15:35:12 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	*ft_memset(void *b, int c, size_t len)
 {
 	size_t	i;
 
-	if (!b)
-		return (NULL);
 	i = 0;
 	while (i < len)
 	{
@@ -28,3 +26,18 @@ void	*ft_memset(void *b, int c, size_t len)
 	}
 	return (b);
 }
+
+// #include <stdio.h>
+// #include <string.h>
+
+// int main(void)
+// {
+// 	// char str[50] = "Hello World!";
+// 	// ft_memset(str, 'a', 5);
+// 	// printf("%s\n", str);
+
+// 	// ft_memset(NULL, 'a', 5);
+// 	// memset(NULL, 'a', 5);
+
+// 	return (0);
+// }
