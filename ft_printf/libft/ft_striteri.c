@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 13:44:46 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/02/18 20:04:33 by idel-poz         ###   ########.fr       */
+/*   Created: 2024/01/13 14:48:01 by idel-poz          #+#    #+#             */
+/*   Updated: 2024/02/17 18:43:23 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "stdlib.h"
 
-int ft_printf(const char *format, ...)
+// Applies a function to every char of a string providing the index
+// and a pointer to the char
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-    ft_putstr_fd((char *) format, 1);
-    return (0);
+	size_t	i;
+
+	i = 0;
+	if (!s || !f)
+		return ;
+	while (s[i])
+	{
+		(*f)(i, &s[i]);
+		i++;
+	}
 }

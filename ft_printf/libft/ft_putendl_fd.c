@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 13:44:46 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/02/18 20:04:33 by idel-poz         ###   ########.fr       */
+/*   Created: 2024/01/13 15:25:31 by idel-poz          #+#    #+#             */
+/*   Updated: 2024/01/27 13:45:04 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft.h"
 
-int ft_printf(const char *format, ...)
+// Writes the string s in the specified output fd followed by
+// a line break at the end.
+void	ft_putendl_fd(char *s, int fd)
 {
-    ft_putstr_fd((char *) format, 1);
-    return (0);
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }

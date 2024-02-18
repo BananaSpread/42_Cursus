@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 13:44:46 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/02/18 20:04:33 by idel-poz         ###   ########.fr       */
+/*   Created: 2023/12/11 14:34:01 by idel-poz          #+#    #+#             */
+/*   Updated: 2024/01/28 12:41:50 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "stdlib.h"
 
-int ft_printf(const char *format, ...)
+// Copies n bytes from src to dst.
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-    ft_putstr_fd((char *) format, 1);
-    return (0);
+	unsigned char	*d;
+	unsigned char	*s;
+
+	if (!dst && src == 0)
+		return (NULL);
+	d = (unsigned char *) dst;
+	s = (unsigned char *) src;
+	while (n--)
+	{
+		*d = *s;
+		d++;
+		s++;
+	}
+	return (dst);
 }

@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 13:44:46 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/02/18 20:04:33 by idel-poz         ###   ########.fr       */
+/*   Created: 2023/12/16 19:26:21 by idel-poz          #+#    #+#             */
+/*   Updated: 2024/01/27 18:34:48 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "stdlib.h"
 
-int ft_printf(const char *format, ...)
+// Finds in the first n positions of s if c exists and
+// returns a pointer to the first found element or
+// NULL if not.
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-    ft_putstr_fd((char *) format, 1);
-    return (0);
+	size_t			i;
+	unsigned char	*str;
+
+	i = 0;
+	str = (unsigned char *) s;
+	while (i < n)
+	{
+		if (str[i] == (unsigned char) c)
+			return ((void *) &str[i]);
+		i++;
+	}
+	return (NULL);
 }

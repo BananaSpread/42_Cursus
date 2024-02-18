@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 13:44:46 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/02/18 20:04:33 by idel-poz         ###   ########.fr       */
+/*   Created: 2023/12/11 14:14:30 by idel-poz          #+#    #+#             */
+/*   Updated: 2024/01/21 15:32:21 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft.h"
 
-int ft_printf(const char *format, ...)
+// Fills in with zeroes the first n bytes of memory starting at the location
+// pointed to by s.
+void	ft_bzero(void *s, size_t n)
 {
-    ft_putstr_fd((char *) format, 1);
-    return (0);
+	ft_memset(s, 0, n);
 }

@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 13:44:46 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/02/18 20:04:33 by idel-poz         ###   ########.fr       */
+/*   Created: 2023/12/11 17:50:23 by idel-poz          #+#    #+#             */
+/*   Updated: 2024/01/28 13:44:22 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft.h"
 
-int ft_printf(const char *format, ...)
+// Copies src in dst up to specified size limit and returns
+// the length of the string tried to create.
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-    ft_putstr_fd((char *) format, 1);
-    return (0);
+	size_t	i;
+
+	if (dstsize > 0)
+	{
+		i = 0;
+		while (src[i] && i < (dstsize - 1))
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
+	}
+	return (ft_strlen(src));
 }

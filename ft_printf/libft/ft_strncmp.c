@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 13:44:46 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/02/18 20:04:33 by idel-poz         ###   ########.fr       */
+/*   Created: 2023/12/16 19:01:01 by idel-poz          #+#    #+#             */
+/*   Updated: 2024/01/28 14:05:54 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "stdlib.h"
 
-int ft_printf(const char *format, ...)
+// Compares the strings s1 with s2 up to n bytes
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-    ft_putstr_fd((char *) format, 1);
-    return (0);
+	size_t	i;
+
+	if (!n)
+		return (0);
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i] && i < (n - 1))
+		i++;
+	return (((unsigned char) s1[i]) - ((unsigned char) s2[i]));
 }

@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 13:44:46 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/02/18 20:04:33 by idel-poz         ###   ########.fr       */
+/*   Created: 2023/12/16 18:42:30 by idel-poz          #+#    #+#             */
+/*   Updated: 2024/01/28 17:44:06 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-
-int ft_printf(const char *format, ...)
+// Transforms c from lowercase to UPPERCASE
+int	ft_toupper(int c)
 {
-    ft_putstr_fd((char *) format, 1);
-    return (0);
+	if (c >= 'a' && c <= 'z')
+		return (c - ' ');
+	return (c);
 }

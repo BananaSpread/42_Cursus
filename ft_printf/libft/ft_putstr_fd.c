@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 13:44:46 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/02/18 20:04:33 by idel-poz         ###   ########.fr       */
+/*   Created: 2024/01/13 15:23:23 by idel-poz          #+#    #+#             */
+/*   Updated: 2024/02/17 18:42:14 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft.h"
+#include "unistd.h"
 
-int ft_printf(const char *format, ...)
+// Writes the string s in the specified output fd.
+void	ft_putstr_fd(char *s, int fd)
 {
-    ft_putstr_fd((char *) format, 1);
-    return (0);
+	if (!s)
+		return ;
+	write(fd, s, ft_strlen(s));
 }

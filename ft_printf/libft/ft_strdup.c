@@ -1,19 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 13:44:46 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/02/18 20:04:33 by idel-poz         ###   ########.fr       */
+/*   Created: 2023/12/23 16:48:37 by idel-poz          #+#    #+#             */
+/*   Updated: 2024/01/27 19:30:13 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft.h"
 
-int ft_printf(const char *format, ...)
+// Duplicates the string s1 and returns a pointer to it
+char	*ft_strdup(const char *s1)
 {
-    ft_putstr_fd((char *) format, 1);
-    return (0);
+	size_t	i;
+	size_t	s_length;
+	char	*v;
+
+	i = 0;
+	s_length = ft_strlen(s1);
+	v = malloc((s_length * sizeof(char)) + 1);
+	if (!v)
+		return (NULL);
+	while (s1[i])
+	{
+		v[i] = s1[i];
+		i++;
+	}
+	v[i] = '\0';
+	return (v);
 }
