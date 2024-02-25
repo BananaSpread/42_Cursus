@@ -6,14 +6,30 @@
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 13:44:46 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/02/18 20:04:33 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/02/25 14:55:46 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libftprintf.h"
 
 int ft_printf(const char *format, ...)
 {
-    ft_putstr_fd((char *) format, 1);
-    return (0);
+    int     len;
+    va_list args;
+
+    len = 0;
+    va_start(args, format);
+    while (*format)
+    {
+        if (*format == '%')
+            len += ft_print_param(*(++format), &args);
+        else
+            len += ft_print_char(*format);
+        format++;
+    }
+    va_end(args);
+    return (len);
 }
+
+
+

@@ -6,7 +6,7 @@
 #    By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/18 13:22:51 by idel-poz          #+#    #+#              #
-#    Updated: 2024/02/18 20:07:22 by idel-poz         ###   ########.fr        #
+#    Updated: 2024/02/25 14:52:52 by idel-poz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS = -Wall -Werror -Wextra
 AR = ar
 ARFLAGS = rcs
 
-SRC = ft_printf.c
+SRC = ft_printf.c ft_printers.c
 OBJ = $(SRC:.c=.o)
 
 NAME = libftprintf.a
