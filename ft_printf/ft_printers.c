@@ -6,7 +6,7 @@
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 13:52:35 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/02/25 15:10:50 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/02/25 20:40:42 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 unsigned int    ft_print_char(char c)
 {
-    ft_putchar_fd(c, 1);
+    ft_putchar_fd(c, FD_STDOUT);
     return (1);
 }
 
@@ -52,7 +52,7 @@ unsigned int	ft_print_addr(unsigned long n, int base, char *nbr_f)
 	len = ft_print_str("0x");
 	i = 0;
 	if (n == 0)
-		return (len += ft_print_char('0'));
+		return (len + ft_print_char('0'));
 	while (n)
 	{
 		addr[i++] = nbr_f[n % base];
@@ -79,19 +79,17 @@ int    ft_print_param(char format, va_list *va)
 {
     if (format == 'c')
         return (ft_print_char(va_arg(*va, int)));
-    else if (format == 's')
+    if (format == 's')
         return (ft_print_str(va_arg(*va, void *)));
-    else if (format == 'd' || format == 'i')
+    if (format == 'd' || format == 'i')
         return ft_print_nbr((long) va_arg(*va, int), 10, HEXL);
-    else if (format == 'u')
+    if (format == 'u')
         return ft_print_nbr((long) va_arg(*va, unsigned int), 10, HEXL);
-    else if (format == 'x')
+    if (format == 'x')
         return ft_print_nbr((long) va_arg(*va, unsigned int), 16, HEXL);
-    else if (format == 'X')
+    if (format == 'X')
         return ft_print_nbr((long) va_arg(*va, unsigned int), 16, HEXU);
-    else if (format == 'p')
+    if (format == 'p')
         return (ft_print_addr((unsigned long) va_arg(*va, void *), 16, HEXL));
-    else
-        return (ft_print_char(format));
-    return (0);
+    return (ft_print_char(format));
 }
