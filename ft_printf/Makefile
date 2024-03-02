@@ -6,7 +6,7 @@
 #    By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/18 13:22:51 by idel-poz          #+#    #+#              #
-#    Updated: 2024/02/25 14:52:52 by idel-poz         ###   ########.fr        #
+#    Updated: 2024/03/02 17:38:00 by idel-poz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,30 +20,32 @@ SRC = ft_printf.c ft_printers.c
 OBJ = $(SRC:.c=.o)
 
 NAME = libftprintf.a
-MAIN_LIB = libft/libft.a
+MAIN_LIB_PATH = libft/
+MAIN_LIB = $(MAIN_LIB_PATH)libft.a
 
 all: $(NAME)
 
 $(NAME): $(MAIN_LIB) $(OBJ)
+	cp $(MAIN_LIB) $(NAME)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJ)
 
 $(MAIN_LIB): 
-	make -C libft/
+	make -C $(MAIN_LIB_PATH)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)
-	make -C libft/ clean
+	make -C $(MAIN_LIB_PATH) clean
 
 fclean:	clean
 	rm -f $(NAME)
-	make -C libft/ fclean
+	make -C $(MAIN_LIB_PATH) fclean
 
 re: fclean $(NAME)
 
 test: all
-	$(CC) $(CFLAGS) main.c ${SRC} libft/libft.a -I./libft && ./a.out && rm -f a.out
+	$(CC) $(CFLAGS) main.c ${SRC} $(MAIN_LIB) -I./$(MAIN_LIB_PATH) && ./a.out && rm -f a.out
 
 .PHONY: all clean fclean re test

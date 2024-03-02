@@ -6,16 +6,16 @@
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 13:52:35 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/02/25 20:40:42 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/03/02 17:14:04 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-unsigned int    ft_print_char(char c)
+unsigned int	ft_print_char(char c)
 {
-    ft_putchar_fd(c, FD_STDOUT);
-    return (1);
+	ft_putchar_fd(c, FD_STDOUT);
+	return (1);
 }
 
 unsigned int	ft_print_nbr(long n, int base, char *nbr_f)
@@ -63,33 +63,33 @@ unsigned int	ft_print_addr(unsigned long n, int base, char *nbr_f)
 	return (len);
 }
 
-unsigned int    ft_print_str(char *str)
+unsigned int	ft_print_str(char *str)
 {
-    unsigned int len;
+	unsigned int	len;
 
-    len = 0;
-    if (!str)
-        str = "(null)";
-    while (*str)
-        len += ft_print_char(*str++);
-    return (len);
+	len = 0;
+	if (!str)
+		str = "(null)";
+	while (*str)
+		len += ft_print_char(*str++);
+	return (len);
 }
 
-int    ft_print_param(char format, va_list *va)
+int	ft_print_param(char format, va_list *va)
 {
-    if (format == 'c')
-        return (ft_print_char(va_arg(*va, int)));
-    if (format == 's')
-        return (ft_print_str(va_arg(*va, void *)));
-    if (format == 'd' || format == 'i')
-        return ft_print_nbr((long) va_arg(*va, int), 10, HEXL);
-    if (format == 'u')
-        return ft_print_nbr((long) va_arg(*va, unsigned int), 10, HEXL);
-    if (format == 'x')
-        return ft_print_nbr((long) va_arg(*va, unsigned int), 16, HEXL);
-    if (format == 'X')
-        return ft_print_nbr((long) va_arg(*va, unsigned int), 16, HEXU);
-    if (format == 'p')
-        return (ft_print_addr((unsigned long) va_arg(*va, void *), 16, HEXL));
-    return (ft_print_char(format));
+	if (format == 'c')
+		return (ft_print_char(va_arg(*va, int)));
+	if (format == 's')
+		return (ft_print_str(va_arg(*va, void *)));
+	if (format == 'd' || format == 'i')
+		return (ft_print_nbr((long) va_arg(*va, int), 10, HEXL));
+	if (format == 'u')
+		return (ft_print_nbr((long) va_arg(*va, unsigned int), 10, HEXL));
+	if (format == 'x')
+		return (ft_print_nbr((long) va_arg(*va, unsigned int), 16, HEXL));
+	if (format == 'X')
+		return (ft_print_nbr((long) va_arg(*va, unsigned int), 16, HEXU));
+	if (format == 'p')
+		return (ft_print_addr((unsigned long) va_arg(*va, void *), 16, HEXL));
+	return (ft_print_char(format));
 }
