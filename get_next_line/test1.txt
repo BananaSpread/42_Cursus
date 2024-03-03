@@ -1,0 +1,5 @@
+Esto es una\t prueba
+para ver los.
+ saltos de 
+línea_
+GG
