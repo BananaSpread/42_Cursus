@@ -6,7 +6,7 @@
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 13:56:58 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/03/03 16:24:51 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/04/01 15:24:29 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,23 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-char	*ft_read_line(int fd, char *line);
-char	*get_next_line(int fd);
+typedef struct s_stack
+{
+	char			*buf;
+	struct s_stack	*next;
+}	str_stack;
 
-char	*ft_strchr(const char *s, int c);
-char	*ft_strjoin(char const *s1, char const *s2);
-size_t	ft_strlen(const char *s);
-void	*ft_memcpy(void *dst, const void *src, size_t n);
+char		*get_next_line(int fd);
+
+void		stack_next_line(int fd, str_stack **stack);
+int			str_has_line_break(str_stack *stack);
+void		append_to_stack(str_stack **stack, char *buf);
+int			get_line_len(str_stack *stack);
+char		*copy_str_line(str_stack *stack, char *line);
+char		*read_line(str_stack *stack);
+void		clean_stack(str_stack **stack);
+str_stack	*get_last_stack(str_stack *stack);
+char		*get_remaining_buffer(str_stack **stack);
+int			str_len(char *str);
 
 #endif

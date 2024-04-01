@@ -6,7 +6,7 @@
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 13:56:54 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/03/03 16:39:33 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/04/01 14:02:49 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,15 @@
 
 char	*get_next_line(int fd)
 {
-	char	*line;
+	static str_stack	*stack;
+	char				*next_line;
 
-	line = NULL;
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &next_line, 0) < 0)
 		return (NULL);
-	line = ft_read_line(fd, line);
-	return (line);
+	stack_next_line(fd, &stack);
+	if (!stack)
+		return (NULL);
+	next_line = read_line(stack);
+	clean_stack(&stack);
+	return (next_line);
 }
