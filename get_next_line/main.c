@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 int main() {
-	char *file_name = "test.txt";
+	char *file_name = "test1.txt";
 	int fd = open(file_name, O_RDONLY);
 	char *line = get_next_line(fd);
 

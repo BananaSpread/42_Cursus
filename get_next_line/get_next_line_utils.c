@@ -6,7 +6,7 @@
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 13:56:49 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/04/01 15:24:05 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/04/06 14:20:15 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int	get_line_len(str_stack *stack)
 	return (len);
 }
 
-char	*copy_str_line(str_stack *stack, char *line)
+void	copy_str_line(str_stack *stack, char *line)
 {
 	int		i;
 	int		j;
@@ -100,8 +100,14 @@ char	*copy_str_line(str_stack *stack, char *line)
 	while (stack)
 	{
 		j = 0;
-		while (stack->buf[j] && stack->buf[j] != '\n')
+		while (stack->buf[j])
 		{
+			if (stack->buf[j] == '\n')
+			{
+				line[i++] = '\n';
+				line[i] = 0;
+				return;
+			}
 			line[i] = stack->buf[j];
 			i++;
 			j++;
@@ -109,7 +115,6 @@ char	*copy_str_line(str_stack *stack, char *line)
 		stack = stack->next;
 	}
 	line[i] = 0;
-	return (line);
 }
 
 char	*read_line(str_stack *stack)
