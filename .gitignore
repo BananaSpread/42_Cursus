@@ -4,3 +4,4 @@
 **/*.o
 **/*.a
 libft-unit-test/
+**/.vscode
