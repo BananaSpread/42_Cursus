@@ -6,7 +6,7 @@
 #    By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/18 13:22:51 by idel-poz          #+#    #+#              #
-#    Updated: 2024/04/01 13:53:47 by idel-poz         ###   ########.fr        #
+#    Updated: 2024/04/13 17:41:22 by idel-poz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,18 +41,18 @@ fclean:	clean
 re: fclean $(NAME)
 
 test1: all
-	$(CC) $(CFLAGS) main.c ${SRC} && $(TEST_EXEC_AND_REMOVE_FILE)
+	$(CC) $(CFLAGS) main.c ${NAME} && $(TEST_EXEC_AND_REMOVE_FILE)
 
 test2: all
-	$(CC) $(CFLAGS) -D $(BUFFER_SIZE_DEF)=0 main.c ${SRC} && $(TEST_EXEC_AND_REMOVE_FILE)
+	$(CC) $(CFLAGS) -D $(BUFFER_SIZE_DEF)=0 main.c ${NAME} && $(TEST_EXEC_AND_REMOVE_FILE)
 
 test3: all
-	$(CC) $(CFLAGS) -D $(BUFFER_SIZE_DEF)=1 main.c ${SRC} && $(TEST_EXEC_AND_REMOVE_FILE)
+	$(CC) $(CFLAGS) -D $(BUFFER_SIZE_DEF)=1 main.c ${NAME} && $(TEST_EXEC_AND_REMOVE_FILE)
 
 test4: all
-	$(CC) $(CFLAGS) -D $(BUFFER_SIZE_DEF)=42 main.c ${SRC} && $(TEST_EXEC_AND_REMOVE_FILE)
+	$(CC) $(CFLAGS) -D $(BUFFER_SIZE_DEF)=42 main.c ${NAME} && $(TEST_EXEC_AND_REMOVE_FILE)
 
 test5: all
-	$(CC) $(CFLAGS) -D $(BUFFER_SIZE_DEF)=10000000 main.c ${SRC} && $(TEST_EXEC_AND_REMOVE_FILE)
+	$(CC) $(CFLAGS) -D $(BUFFER_SIZE_DEF)=10000000 main.c ${NAME} && $(TEST_EXEC_AND_REMOVE_FILE)
 
 .PHONY: all clean fclean re test1 test2 test3 test4 test5

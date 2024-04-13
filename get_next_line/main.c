@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 int main() {
-	char *file_name = "test1.txt";
+	char *file_name = "test.txt";
 	int fd = open(file_name, O_RDONLY);
 	char *line = get_next_line(fd);
 
@@ -12,7 +12,7 @@ int main() {
 	}
 	printf("Printing lines\n\n");
 	while (line) {
-		printf("%s\n", line);
+		printf("%s", line);
 		free(line);
 		line = get_next_line(fd);
 	}
