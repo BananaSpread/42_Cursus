@@ -6,7 +6,7 @@
 #    By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/18 13:22:51 by idel-poz          #+#    #+#              #
-#    Updated: 2024/03/02 17:38:00 by idel-poz         ###   ########.fr        #
+#    Updated: 2024/04/13 17:03:10 by idel-poz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,6 @@ fclean:	clean
 re: fclean $(NAME)
 
 test: all
-	$(CC) $(CFLAGS) main.c ${SRC} $(MAIN_LIB) -I./$(MAIN_LIB_PATH) && ./a.out && rm -f a.out
+	$(CC) $(CFLAGS) main.c ${NAME} -L. && ./a.out && rm -f a.out
 
 .PHONY: all clean fclean re test
