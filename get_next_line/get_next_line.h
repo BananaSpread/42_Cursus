@@ -6,7 +6,7 @@
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 13:56:58 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/04/06 16:34:53 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/05/18 15:00:46 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,5 @@ char		*read_line(t_str_stack *stack);
 void		clean_stack(t_str_stack **stack);
 t_str_stack	*get_last_stack(t_str_stack *stack);
 char		*get_remaining_buffer(t_str_stack **stack);
-int			str_len(char *str);
 
 #endif
