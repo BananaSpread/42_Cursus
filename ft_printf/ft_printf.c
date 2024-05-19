@@ -6,7 +6,7 @@
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 13:44:46 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/03/02 16:15:40 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/05/19 19:23:29 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_printf(const char *format, ...)
 	int		len;
 	va_list	args;
 
+	if (!format)
+		return (-1);
 	len = 0;
 	va_start(args, format);
 	while (*format)

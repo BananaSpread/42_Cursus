@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   .main.c                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 20:00:21 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/03/02 17:36:11 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/05/19 19:33:14 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,21 @@
 void	test1()
 {
 	char *format = "Prueba del printf:\nchar c:\t\t%c\nstring s:\t%s\npuntero p:\t%p\ndecimal d:\t%d\ninteger i:\t%i\nunsigned u:\t%u\nhex lo x:\t%x\nhex up X:\t%X\npercent:\t%%\n";
+	// format = NULL;
 
 	char c = 'c';
 	char *s = "hola";
+	char *p = NULL;
 	int d = 42;
 	int i = -42;
 	int u = -42;
 	int x = 42;
 	int X = 42;
 
-	int res1 = ft_printf(format, c, s, &format, d, i, u, x, X);
+	int res1 = ft_printf(format, c, s, &p, d, i, u, x, X);
 	printf("ft_printf:\t%d\n\n", res1);
 
-	int res2 = printf(format, c, s, &format, d, i, u, x, X);
+	int res2 = printf(format, c, s, &p, d, i, u, x, X);
 	printf("printf:\t\t%d\n", res2);
 }
 
