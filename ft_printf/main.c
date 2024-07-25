@@ -20,18 +20,18 @@ void	test1()
 	// format = NULL;
 
 	char c = 'c';
-	char *s = "hola";
-	char *p = s;
+	char *s = NULL;
+	char *p = NULL;
 	int d = -0;
 	int i = -42;
 	int u = -42;
 	int x = 0x1A;
 	int X = 0x1A;
 
-	int res1 = ft_printf(format, c, s, &p, d, i, u, x, X);
+	int res1 = ft_printf(format, c, s, p, d, i, u, x, X);
 	printf("ft_printf:\t%d\n\n", res1);
 
-	int res2 = printf(format, c, s, &p, d, i, u, x, X);
+	int res2 = printf(format, c, s, p, d, i, u, x, X);
 	printf("printf:\t\t%d\n", res2);
 }
 

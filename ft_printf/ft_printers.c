@@ -49,10 +49,10 @@ unsigned int	ft_print_addr(unsigned long n, int base, char *nbr_f)
 	int		i;
 	char	addr[MAX_LONG_LEN];
 
+	if (!n)
+		return (ft_print_str("(nil)"));
 	len = ft_print_str("0x");
 	i = 0;
-	if (n == 0)
-		return (len + ft_print_char('0'));
 	while (n)
 	{
 		addr[i++] = nbr_f[n % base];
