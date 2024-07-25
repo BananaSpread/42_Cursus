@@ -21,12 +21,12 @@ void	test1()
 
 	char c = 'c';
 	char *s = "hola";
-	char *p = NULL;
-	int d = 42;
+	char *p = s;
+	int d = -0;
 	int i = -42;
 	int u = -42;
-	int x = 42;
-	int X = 42;
+	int x = 0x1A;
+	int X = 0x1A;
 
 	int res1 = ft_printf(format, c, s, &p, d, i, u, x, X);
 	printf("ft_printf:\t%d\n\n", res1);
