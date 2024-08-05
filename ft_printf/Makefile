@@ -46,6 +46,6 @@ fclean:	clean
 re: fclean $(NAME)
 
 test: all
-	$(CC) $(CFLAGS) main.c ${NAME} -L. && ./a.out && rm -f a.out
+	$(CC) $(CFLAGS) main.c ${NAME} && ./a.out && rm -f a.out
 
 .PHONY: all clean fclean re test
