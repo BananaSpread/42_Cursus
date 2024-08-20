@@ -6,7 +6,7 @@
 #    By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/14 18:00:44 by idel-poz          #+#    #+#              #
-#    Updated: 2024/01/20 20:35:31 by idel-poz         ###   ########.fr        #
+#    Updated: 2024/08/20 22:59:59 by idel-poz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,9 @@ SRC = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c \
 	ft_putstr_fd.c ft_split.c ft_strchr.c ft_strdup.c ft_striteri.c \
 	ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c \
 	ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c \
-	ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c
+	ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c \
+	ft_printf.c ft_printers.c \
+	get_next_line.c get_next_line_utils.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -33,19 +35,23 @@ NAME = libft.a
 
 # Functions
 all: $(NAME)
+	@echo "\nlibft compiled successfully."
 
 $(NAME): $(OBJ)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJ)
+	@$(AR) $(ARFLAGS) $(NAME) $^
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
+	@echo "$< compiled."
 
 clean:
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
+	@echo "\nlibft cleaned successfully.\n"
 
 fclean:	clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@echo "\nlibft fully cleaned successfully."
 
-re: fclean $(NAME)
+re: fclean all
 
 .PHONY: all clean fclean re

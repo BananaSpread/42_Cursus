@@ -6,14 +6,51 @@
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 12:28:47 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/01/27 12:12:21 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/08/20 22:53:49 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include "stdlib.h"
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 32
+# endif
+
+# ifndef FD_STDOUT
+#  define FD_STDOUT 1
+# endif
+
+# ifndef FD_STDERR
+#  define FD_STDERR 2
+# endif
+
+# ifndef MAX_INT_LEN
+#  define MAX_INT_LEN 12
+# endif
+
+# ifndef MAX_LONG_LEN
+#  define MAX_LONG_LEN 22
+# endif
+
+# ifndef HEXL
+#  define HEXL "0123456789abcdef"
+# endif
+
+# ifndef HEXU
+#  define HEXU "0123456789ABCDEF"
+# endif
+
+# include <fcntl.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdarg.h>
+
+typedef struct s_stack
+{
+	char			*buf;
+	struct s_stack	*next;
+}	str_stack;
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -49,5 +86,27 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+
+// PRINTF
+int				ft_printf(const char *format, ...);
+unsigned int	ft_print_char(char c);
+unsigned int	ft_print_nbr(long n, int base, char *nbr_f);
+unsigned int	ft_print_addr(unsigned long n, int base, char *nbr_f);
+unsigned int	ft_print_str(char *str);
+int				ft_print_param(char format, va_list *va);
+
+// GNL
+char		*get_next_line(int fd);
+
+void		stack_next_line(int fd, str_stack **stack);
+int			str_has_line_break(str_stack *stack);
+void		append_to_stack(str_stack **stack, char *buf);
+int			get_line_len(str_stack *stack);
+char		*copy_str_line(str_stack *stack, char *line);
+char		*read_line(str_stack *stack);
+void		clean_stack(str_stack **stack);
+str_stack	*get_last_stack(str_stack *stack);
+char		*get_remaining_buffer(str_stack **stack);
+int			str_len(char *str);
 
 #endif
