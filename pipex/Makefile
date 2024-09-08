@@ -6,14 +6,14 @@
 #    By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/18 12:42:32 by idel-poz          #+#    #+#              #
-#    Updated: 2024/09/07 21:02:18 by idel-poz         ###   ########.fr        #
+#    Updated: 2024/09/08 21:00:07 by idel-poz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = pipex.c
+SRC = pipex.c fill_data.c cmd_utils.c exec_cmd.c
 OBJ = $(SRC:.c=.o)
 
 NAME = pipex
@@ -52,7 +52,7 @@ CAT_CMD = cat
 TEST_0_CMD = "grep include"
 TEST_1_CMD = "grep if"
 TEST_2_CMD = "wc -l"
-TEST_3_CMD = "wc a"
+TEST_3_CMD = "wc -w"
 
 .PHONY: test
 test: all
@@ -60,8 +60,8 @@ test: all
 	./pipex $(TEST_FILE_IN) $(CAT_CMD) $(TEST_1_CMD) result1.txt
 	./pipex $(TEST_FILE_IN) $(CAT_CMD) $(TEST_2_CMD) result2.txt
 	./pipex $(TEST_FILE_IN) $(CAT_CMD) $(TEST_3_CMD) result3.txt
-	echo "Result 0:\n" && cat result0.txt && echo "\n\n"
-	echo "Result 1:\n" && cat result1.txt && echo "\n\n"
-	echo "Result 2:\n" && cat result2.txt && echo "\n\n"
-	echo "Result 3:\n" && cat result3.txt && echo "\n\n"
+	@echo "Result 0:" && cat result0.txt && echo ""
+	@echo "Result 1:" && cat result1.txt && echo ""
+	@echo "Result 2:" && cat result2.txt && echo ""
+	@echo "Result 3:" && cat result3.txt && echo ""
 	rm result*.txt

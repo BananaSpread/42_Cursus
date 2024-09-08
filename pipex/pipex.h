@@ -6,7 +6,7 @@
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 13:06:33 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/09/07 21:01:55 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/09/08 20:58:19 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,14 @@
 # include <sys/wait.h>
 # include <sys/types.h>
 # include <stdio.h>
-// # include <errno.h>
 # include <string.h>
 
-// TODO: Add prototypes here
+void	fill_file_descriptors(char **argv, int (*fd_in_out)[2]);
+void	fill_env_paths(char **envp, char ***env_paths);
+
+char	*concat_strs(char *str1, char *str2, char *str3);
+char	*find_cmd_path(char *cmd, char **envp);
+
+void	exec_cmd(char *cmd_str, char **envp);
 
 #endif
