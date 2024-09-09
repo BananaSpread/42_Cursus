@@ -6,7 +6,7 @@
 #    By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/18 12:42:32 by idel-poz          #+#    #+#              #
-#    Updated: 2024/09/08 21:00:07 by idel-poz         ###   ########.fr        #
+#    Updated: 2024/09/09 20:44:03 by idel-poz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,9 +59,18 @@ test: all
 	./pipex $(TEST_FILE_IN) $(CAT_CMD) $(TEST_0_CMD) result0.txt
 	./pipex $(TEST_FILE_IN) $(CAT_CMD) $(TEST_1_CMD) result1.txt
 	./pipex $(TEST_FILE_IN) $(CAT_CMD) $(TEST_2_CMD) result2.txt
-	./pipex $(TEST_FILE_IN) $(CAT_CMD) $(TEST_3_CMD) result3.txt
+	touch emptyfile && ./pipex emptyfile env_var cat result3.txt && rm emptyfile
+	./pipex $(TEST_FILE_IN) "ping -c 3 google.es" cat result4.txt
 	@echo "Result 0:" && cat result0.txt && echo ""
 	@echo "Result 1:" && cat result1.txt && echo ""
 	@echo "Result 2:" && cat result2.txt && echo ""
 	@echo "Result 3:" && cat result3.txt && echo ""
+	@echo "Result 4:" && cat result4.txt && echo ""
 	rm result*.txt
+
+.PHONY: leaks1 leaks2
+leaks1: all
+	valgrind --leak-check=full ./pipex pipex.c cat "wc -l" result_leak0.txt
+
+leaks2: all
+	valgrind --leak-check=full --show-reachable=yes ./pipex pipex.c cat ff result_leak1.txt

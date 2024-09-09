@@ -6,20 +6,20 @@
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 17:59:33 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/09/08 21:10:51 by idel-poz         ###   ########.fr       */
+/*   Updated: 2024/09/09 20:50:23 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-static void	free_env_paths(char ***env_paths)
+static void	free_env_paths(char **env_paths)
 {
 	int	i;
 
 	i = 0;
-	while ((*env_paths)[i])
-		free((*env_paths)[i++]);
-	free(*env_paths);
+	while (env_paths[i])
+		free(env_paths[i++]);
+	free(env_paths);
 }
 
 char	*concat_strs(char *str1, char *str2, char *str3)
@@ -37,7 +37,6 @@ char	*concat_strs(char *str1, char *str2, char *str3)
 	ft_strlcpy(concat_str, str1, size);
 	ft_strlcat(concat_str, str2, size);
 	ft_strlcat(concat_str, str3, size);
-	concat_str[size] = '\0';
 	return (concat_str);
 }
 
@@ -45,23 +44,25 @@ char	*find_cmd_path(char *cmd, char **envp)
 {
 	char	*cmd_path;
 	char	**env_paths;
+	char	*result;
 	int		i;
 
 	if (access(cmd, X_OK) == 0)
 		return (cmd);
 	fill_env_paths(envp, &env_paths);
+	result = NULL;
 	i = 0;
 	while (env_paths[i])
 	{
 		cmd_path = concat_strs(env_paths[i], "/", cmd);
 		if (access(cmd_path, X_OK) == 0)
 		{
-			free_env_paths(&env_paths);
-			return (cmd_path);
+			result = cmd_path;
+			break ;
 		}
 		free(cmd_path);
 		i++;
 	}
-	free_env_paths(&env_paths);
-	return (NULL);
+	free_env_paths(env_paths);
+	return (result);
 }
