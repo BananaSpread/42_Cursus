@@ -6,14 +6,14 @@
 #    By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/21 12:58:36 by idel-poz          #+#    #+#              #
-#    Updated: 2024/09/22 14:32:35 by idel-poz         ###   ########.fr        #
+#    Updated: 2024/09/22 18:26:09 by idel-poz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = push_swap.c stacks_utils.c errors_utils.c
+SRC = push_swap.c stack_utils.c error_utils.c
 OBJ = $(SRC:.c=.o)
 
 NAME = push_swap
@@ -46,5 +46,8 @@ re: fclean all
 .PHONY: all clean fclean re
 
 # TESTS #
-test: all
-	valgrind -s ./push_swap 123 0 "4" "-3" "+5" " +12" 2147483647 12
+test1: all
+	valgrind -s ./push_swap 123 0 "4" "-3" "+5" " +12" 2147483647 121
+
+test2: all
+	valgrind -s ./push_swap "0 1 2 3 4 5 6 7 8 9"
