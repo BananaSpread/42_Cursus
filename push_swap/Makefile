@@ -6,14 +6,14 @@
 #    By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/21 12:58:36 by idel-poz          #+#    #+#              #
-#    Updated: 2024/09/21 13:01:33 by idel-poz         ###   ########.fr        #
+#    Updated: 2024/09/22 14:32:35 by idel-poz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = push_swap.c
+SRC = push_swap.c stacks_utils.c errors_utils.c
 OBJ = $(SRC:.c=.o)
 
 NAME = push_swap
@@ -21,25 +21,30 @@ LIBFT_PATH = Libft/
 LIBFT = $(LIBFT_PATH)libft.a
 
 all: $(NAME)
+	@echo "push_swap compiled successfully."
 
 $(NAME): $(LIBFT) $(OBJ)
-	cp $(LIBFT) $(NAME)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIBFT) -I./$(LIBFT_PATH)
+	@cp $(LIBFT) $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIBFT) -I./$(LIBFT_PATH)
 
 $(LIBFT):
-	make -sC $(LIBFT_PATH)
+	@make -sC $(LIBFT_PATH)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
-	make -sC $(LIBFT_PATH) clean
+	@rm -f $(OBJ)
+	@make -sC $(LIBFT_PATH) clean
 
 fclean: clean
-	make -sC $(LIBFT_PATH) fclean
-	rm -f $(NAME)
+	@make -sC $(LIBFT_PATH) fclean
+	@rm -f $(NAME)
 
 re: fclean all
 
 .PHONY: all clean fclean re
+
+# TESTS #
+test: all
+	valgrind -s ./push_swap 123 0 "4" "-3" "+5" " +12" 2147483647 12

@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   errors_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/21 13:02:54 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/09/22 14:07:51 by idel-poz         ###   ########.fr       */
+/*   Created: 2024/09/22 14:13:11 by idel-poz          #+#    #+#             */
+/*   Updated: 2024/09/22 14:20:14 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "Libft/libft.h"
-
-# define INT_MIN -2147483648
-# define INT_MAX 2147483647
-
-int 	*parse_arguments(int argc, char *argv[]);
-
-void	free_and_error(void *m);
-
-#endif
+void	free_and_error(void *m)
+{
+	if (m)
+		free(m);
+	ft_putstr_fd("Error\n", STDERR_FILENO);
+	exit(1);
+}
