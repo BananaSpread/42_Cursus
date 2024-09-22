@@ -6,7 +6,7 @@
 #    By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/14 18:00:44 by idel-poz          #+#    #+#              #
-#    Updated: 2024/08/20 22:59:59 by idel-poz         ###   ########.fr        #
+#    Updated: 2024/09/22 14:17:31 by idel-poz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,22 +35,19 @@ NAME = libft.a
 
 # Functions
 all: $(NAME)
-	@echo "\nlibft compiled successfully."
+	@echo "libft compiled successfully."
 
 $(NAME): $(OBJ)
 	@$(AR) $(ARFLAGS) $(NAME) $^
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
-	@echo "$< compiled."
 
 clean:
 	@rm -f $(OBJ)
-	@echo "\nlibft cleaned successfully.\n"
 
 fclean:	clean
 	@rm -f $(NAME)
-	@echo "\nlibft fully cleaned successfully."
 
 re: fclean all
 
