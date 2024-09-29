@@ -5,124 +5,61 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: idel-poz <idel-poz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/22 14:06:42 by idel-poz          #+#    #+#             */
-/*   Updated: 2024/09/22 18:15:55 by idel-poz         ###   ########.fr       */
+/*   Created: 2024/09/28 20:34:29 by idel-poz          #+#    #+#             */
+/*   Updated: 2024/09/29 18:01:33 by idel-poz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	free_argv(char **argv)
+int	get_min_value(t_stack_node *stack)
 {
-	int	i;
+	int		i;
 
-	if (!argv)
-		return ;
-	i = 0;
-	while (argv[i])
+	i = stack->value;
+	while (stack)
 	{
-		free(argv[i]);
-		i++;	
+		if (stack->value < i)
+			i = stack->value;
+		stack = stack->next;
 	}
-	free(argv);
+	return (i);
 }
 
-static int is_valid_number(char *str)
+int	get_max_value(t_stack_node *stack)
 {
-	while (*str == ' ')
-		str++;
-	if (*str == '+' || *str == '-')
-		str++;
-	while (*str)
-		if (!ft_isdigit(*str++))
-			return (0);
-	return (1);
-}
+	int		i;
 
-static int	is_within_int_range(char *str)
-{
-	long	n;
-	int		sign;
-
-	n = 0;
-	sign = 1;
-	while (*str == ' ')
-		str++;
-	if (*str == '-')
-		sign = -1;
-	if (*str == '+' || *str == '-')
-		str++;
-	while (*str)
+	i = stack->value;
+	while (stack)
 	{
-		n = n * 10 + (*str - '0');
-		if ((sign == 1 && n > INT_MAX) || (sign == -1 && -n < INT_MIN))
-			return (0);
-		str++;
+		if (stack->value > i)
+			i = stack->value;
+		stack = stack->next;
 	}
-	return (1);
+	return (i);
 }
 
-static int	has_duplicates(int *n_list, int len)
+int	get_stack_size(t_stack_node *stack)
 {
-	int	i;
-	int	j;
+	size_t	i;
 
 	i = 0;
-	while (i < len)
+	while (stack)
 	{
-		j = i + 1;
-		while (j < len)
-		{
-			if (n_list[i] == n_list[j])
-				return (1);
-			j++;
-		}
+		stack = stack->next;
 		i++;
 	}
-	return (0);
+	return (i);
 }
 
-int *parse_arguments(int size, char *argv[], int i)
+int	check_if_sorted(t_stack_node *stack)
 {
-	int *n_list;
-
-	n_list = malloc(sizeof(int) * size);
-	if (!n_list)
-		return (NULL);
-	ft_printf("size = %d\n", size);
-	while (i < size)
+	while (stack->next)
 	{
-		ft_printf("Number to check: %s\n", argv[i]);
-		n_list[i - 1] = ft_atoi(argv[i]);
-		if (!is_valid_number(argv[i]) || !is_within_int_range(argv[i]))
-		{
-			free_and_error(n_list);
-			return (NULL);
-		}
-		i++;
+		if (stack->value > stack->next->value)
+			return (0);
+		stack = stack->next;
 	}
-	n_list[i - 1] = '\0';
-	if (!has_duplicates(n_list, size - 1))
-		return n_list;
-	free_and_error(n_list);
-	return (NULL);
-}
-
-int	*parse_grouped_arguments(char *args)
-{
-	char	**values;
-	int		*stack;
-	int		len;
-
-	if (!args)
-		return (NULL);
-	values = ft_split(args, ' ');
-	if (!values)
-		return (NULL);
-	len = 0;
-	while (values[len])
-		len++;
-	stack = parse_arguments(len, values, 0);
-	free_argv(values);
-	return (stack);
+	return (1);
 }
